@@ -1,4 +1,4 @@
-.search {
+.search-form {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,7 +7,7 @@
   border-bottom: 1px solid #e8e8e8;
 }
 
-.search__container {
+.search-form__container {
   display: flex;
   justify-content: space-between;
   width: 80.5%;
@@ -17,7 +17,7 @@
   border-radius: 50px;
 }
 
-.search__input {
+.search-form__input {
   width: 100%;
   padding: 0 15px;
   outline: none;
@@ -27,17 +27,17 @@
   line-height: 18px;
 }
 
-.search__input:focus {
+.search-form__input:focus {
   width: 90%;
   outline: 1px solid black;
   border-radius: 50px;
 }
 
-.search__input::placeholder {
+.search-form__input::placeholder {
   color: #a0a0a0;
 }
 
-.search__button {
+.search-form__button {
   padding: 8px 12px;
   outline: none;
   border: none;
@@ -50,19 +50,19 @@
   transition: opacity .2s linear;
 }
 
-.search__button:hover {
+.search-form__button:hover {
   opacity: .6;
   cursor: pointer;
 }
 
-.search__toggle {
+.search-form__toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 0 40px;
 }
 
-.search__films {
+.search-form__films {
   margin: 0 0 0 12px;
   padding-right: 14px;
   font-size: 13px;
@@ -70,7 +70,7 @@
   line-height: 18px;
 }
 
-.search__tumbler {
+.search-form__tumbler {
   position: relative;
   display: inline-block;
   width: 36px;
@@ -79,11 +79,11 @@
   cursor: pointer;
 }
 
-.search__checkbox {
+.search-form__checkbox {
   display: none;
 }
 
-.search__slider {
+.search-form__slider {
   position: absolute;
   inset: 0;
   background-color: white;
@@ -92,7 +92,7 @@
   transform: scale(-1, -1);
 }
 
-.search__slider::before {
+.search-form__slider::before {
   position: absolute;
   content: '';
   height: 16px;
@@ -104,59 +104,59 @@
   background-color: #2be080;
 }
 
-.search__checkbox:checked + .search__slider {
+.search-form__checkbox:checked + .search__slider {
   background-color: #2be080;
 }
 
-.search__checkbox:checked + .search__slider::before {
+.search-form__checkbox:checked + .search__slider::before {
   transform: translateX(16px);
 }
 
 @media screen and (max-width: 800px) {
-  .search {
+  .search-form {
     flex-direction: column;
     margin: 0 30px 0;
     padding: 55px 0 17px;
   }
 
-  .search__container {
+  .search-form__container {
     width: 98%;
     padding: 6px;
     margin: 0 0 37px;
   }
 
-  .search__input {
+  .search-form__input {
     padding: 0 11px;
   }
 
-  .search__toggle {
+  .search-form__toggle {
     margin: 0 0 39px;
   }
 
-  .search__films {
+  .search-form__films {
     margin: 0;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .search {
+  .search-form {
     margin: 0 15px 0;
   }
 
-  .search__container {
+  .search-form__container {
     margin: 0 0 44px;
   }
 
-  .search__input {
+  .search-form__input {
     padding: 0 8px;
     font-size: 11px;
   }
 
-  .search__toggle {
+  .search-form__toggle {
     margin: 0 0 26px;
   }
 
-  .search__films {
+  .search-form__films {
     font-size: 11px;
   }
 }

@@ -2,16 +2,16 @@ import './SearchForm.css';
 
 const SearchForm = () => {
   return (
-    <form className="search">
-      <div className="search__container">
-        <input className="search__input" placeholder="Фильм" type="text" required />
-        <button type="submit" className="search__button">Найти</button>
+    <form className="search-form">
+      <div className="search-form__container">
+        <input className="search-form__input" placeholder="Фильм" type="text" required />
+        <button type="submit" className="search-form__button">Найти</button>
       </div>
-      <div className="search__toggle">
-        <p className="search__films">Короткометражки</p>
-        <label className="search__tumbler">
-          <input type="checkbox" className="search__checkbox" />
-          <span className="search__slider" />
+      <div className="search-form__toggle">
+        <p className="search-form__films">Короткометражки</p>
+        <label className="search-form__tumbler">
+          <input type="checkbox" className="search-form__checkbox" />
+          <span className="search-form__slider" />
         </label>
       </div>
     </form>
