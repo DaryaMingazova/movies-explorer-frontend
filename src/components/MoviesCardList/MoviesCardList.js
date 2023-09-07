@@ -11,8 +11,8 @@ const MoviesCardList = ({ cards, buttonMore }) => {
   };
 
   return (
-    <section className="movies-cards-list">
-      <ul className="movies-cards-list__lists">
+    <section className="movies-card-list">
+      <ul className="movies-card-list__lists">
         {cards.map((card) => (
           <MoviesCard key={card.id} card={card} />
         ))}
@@ -22,8 +22,8 @@ const MoviesCardList = ({ cards, buttonMore }) => {
         <Preloader />
       ) : (
         buttonMore && (
-          <div className="movies-cards-list__button-container">
-            <button className="movies-cards-list__button" type="button" name="more" onClick={handlePreloader}>Ещё</button>
+          <div className="movies-card-list__button-container">
+            <button className="movies-card-list__button" type="button" name="more" onClick={handlePreloader}>Ещё</button>
           </div>
         )
       )}

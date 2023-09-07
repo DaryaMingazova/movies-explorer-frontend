@@ -10,7 +10,7 @@ const SearchForm = () => {
       <div className="search-form__toggle">
         <p className="search-form__films">Короткометражки</p>
         <label className="search-form__tumbler">
-          <input type="checkbox" className="search-form__checkbox" />
+          <input type="checkbox" className="search-form__checkbox"/>
           <span className="search-form__slider" />
         </label>
       </div>

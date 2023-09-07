@@ -2,7 +2,7 @@ import './MoviesCard.css';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-const MoviesCard = ({ movie }) => {
+const MoviesCard = ({ card }) => {
   const [favorite, setFavorite] = React.useState(false);
 
   function handleFavoriteToogle() {
@@ -13,9 +13,9 @@ const MoviesCard = ({ movie }) => {
 
   return (
     <li className="movies-card">
-      <img src={movie.image} alt={movie.title} className="movies-card__image"></img>
+      <img src={card.image} alt={card.title} className="movies-card__image"></img>
       <div className="movies-card__element">
-        <p className="movies-card__title">{movie.title}</p>
+        <h2 className="movies-card__title">{card.title}</h2>
         <div className="movies-card__buttons">
           {pathname === '/saved-movies' ? (
             <button type="button" className="movies-card__button movies-card__button_delete" />
@@ -28,7 +28,7 @@ const MoviesCard = ({ movie }) => {
           )}
         </div>
       </div>
-      <p className="movies-card__duration">{movie.duration}</p>
+      <p className="movies-card__duration">{card.duration}</p>
     </li>
   );
 };
