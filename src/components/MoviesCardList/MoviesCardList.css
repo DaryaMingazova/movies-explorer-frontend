@@ -40,13 +40,12 @@
 
 @media all and (max-width: 800px) {
   .cards {
-    margin: 8px 11px 0 20px;
+    margin: 0 30px 0;
   }
 
   .cards__list {
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 15px 20px;
-    padding-left:5px;
   }
 }
 
@@ -56,7 +55,7 @@
   }
 
   .cards__list {
-    padding: 40px 15px 0;
+    padding: 40px 0 0;
     gap: 18px 20px;
   }
 

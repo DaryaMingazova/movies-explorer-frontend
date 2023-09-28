@@ -8,11 +8,11 @@ const Profile = () => {
     <main>
       <section className="profile">
         <form className="profile__form">
-          <h3 className="profile__greeting">Привет, Виталий!</h3>
+          <h1 className="profile__greeting">Привет, Виталий!</h1>
           <div className="profile__inputs">
             <p className="profile__text">Имя</p>
             <div className="profile__area profile__area_type_name">
-              <input className="profile__settings" defaultValue="Виталий" minLength="2" maxLength="30"  placeholder="Введите имя" required />
+              <input className="profile__settings" defaultValue="Виталий"  minLength="2" maxLength="30"  placeholder="Введите имя" required />
             </div>
             <div className="profile__area profile__area_type_email">
               <input className="profile__settings" defaultValue="pochta@pochta.ru" placeholder="Введите почту" required />

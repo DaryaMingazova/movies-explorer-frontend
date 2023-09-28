@@ -9,11 +9,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0 0;
+  padding: 75px 0 0;
 }
 
 .profile__greeting {
-  margin: 0px 0 140px;
+  margin: 0 0 123px;
   font-size: 24px;
   font-weight: 500;
   line-height: 30px;
@@ -30,7 +30,7 @@
 .profile__text {
   width: 100%;
   margin: 0;
-  padding: 0 0 23px;
+  padding: 0 0 16px;
   font-size: 11px;
   font-weight: 500;
   line-height: 13px;
@@ -82,7 +82,6 @@
   text-align: end;
   font-size: 11px;
   line-height: 13px;
-  outline: none;
 }
 
 .profile__settings:focus {
@@ -94,7 +93,7 @@
 }
 
 .profile__button {
-  margin: 249px 0 16px;
+  margin: 220px 0 16px;
   border: none;
   background-color: transparent;
   color: #000;

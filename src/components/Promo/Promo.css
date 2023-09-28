@@ -50,20 +50,18 @@
 .promo__logo {
   width: 310px;
   height: 304px;
-  padding-right: 20px;
 }
 
 @media all and (max-width: 800px) {
   .promo {
     flex-direction: column-reverse;
     align-items: center;
-    padding-top: 0px;
+    padding: 0 0 76px;
   }
 
   .promo__container {
     align-items: center;
     text-align: center;
-    margin-left: 13px;
   }
 
   .promo__title {
@@ -82,7 +80,7 @@
   }
 
   .promo__logo {
-    padding: 140px 0 49px 10px;
+    padding: 140px 0 49px;
   }
 }
 
@@ -90,9 +88,6 @@
   .promo {
     padding: 0 0 30px;
   }
-  .promo__container {
-    margin-left: 13px;
-}
 
   .promo__title {
     font-size: 30px;
@@ -111,6 +106,6 @@
   .promo__logo {
     width: 210px;
     height: 206px;
-    padding: 70px 0 44px 10px;
+    padding: 70px 0 44px;
   }
 }

@@ -2,12 +2,12 @@ import Form from '../Form/Form';
 
 function Register() {
   return (
-  	<main>
+    <main>
       <Form header="Добро пожаловать!" submit="Зарегистрироваться" question="Уже зарегистрированы?" link="Войти" path="/signin">
         <label className="form__item">
           <span className="form__item-text">Имя</span>
           <input type="text" className="form__field" defaultValue="Виталий" minLength="2" maxLength="30" placeholder="Введите имя" required />
-      	  <span className="form__error">Что-то пошло не так...</span>
+          <span className="form__error">Что-то пошло не так...</span>
         </label>
 
         <label className="form__item">
@@ -22,7 +22,7 @@ function Register() {
           <span className="form__error form__error-display">Что-то пошло не так...</span>
         </label>
       </Form>
-   </main>
+    </main>
   );
 }
 
