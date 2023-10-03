@@ -1,3 +1,4 @@
+import './SavedMovies.css';
 import { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -7,13 +8,13 @@ import mainApi from '../../utils/MainApi.js';
 const SavedMovies = ({ openPopup }) => {
   const [films, setFilms] = useState(null);
   const [preloader, setPreloader] = useState(false);
-  const [errorText, setErrorText] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [filmsTumbler, setFilmsTumbler] = useState(false);
   const [filmsInputSearch, setFilmsInputSearch] = useState('');
   const [filmsShowed, setFilmsShowed] = useState([]);
 
   async function handleGetMovies(inputSearch, tumbler) {
-    setErrorText('');
+    setErrorMessage('');
     setPreloader(true);
 
     try {
@@ -34,8 +35,8 @@ const SavedMovies = ({ openPopup }) => {
         localStorage.removeItem('savedFilmsInputSearch');
       }
     } catch (err) {
-      setErrorText(
-        'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз'
+      setErrorMessage(
+        'Во время запроса произошла ошибка. Подождите немного и попробуйте ещё раз'
       );
 
       setFilms([]);
@@ -60,7 +61,7 @@ const SavedMovies = ({ openPopup }) => {
     }
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(async () => {
     const localStorageFilms = localStorage.getItem('savedFilms');
     if (localStorageFilms) {
@@ -89,8 +90,8 @@ const SavedMovies = ({ openPopup }) => {
     <main className="saved-movies">
       <SearchForm handleGetMovies={handleGetMovies} filmsTumbler={filmsTumbler} filmsInputSearch={filmsInputSearch} />
       {preloader && <Preloader />}
-      {errorText && <div className="saved-movies__text-error">{errorText}</div>}
-      {!preloader && !errorText && films !== null && (
+      {errorMessage && <div className="saved-movies__text-error">{errorMessage}</div>}
+      {!preloader && !errorMessage && films !== null && (
         <MoviesCardList filmsRemains={[]} savedMoviesToggle={savedMoviesToggle} films={filmsShowed} />
       )}
     </main>

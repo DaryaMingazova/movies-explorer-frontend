@@ -5,9 +5,10 @@ import NavAuth from '../NavAuth/NavAuth';
 import Navigation from '../Navigation/Navigation';
 
 const Header = ({ loggedIn, isLoading }) => {
-  const { pathName } = useLocation();
+  const { pathname } = useLocation();
+
   return (
-    <header className={`header ${pathName !== '/' ? '' : 'header_type_auth' }`}>
+    <header className={`header ${pathname !== '/' ? '' : 'header_type_auth'}`}>
       <Link to="/" className="header__link">
         <img className="header__logo" src={logo} alt="Логотип Movies Explorer"></img>
       </Link>

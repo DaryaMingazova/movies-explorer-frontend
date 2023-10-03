@@ -2,11 +2,11 @@ import './SearchForm.css';
 import { useEffect, useState } from 'react';
 
 const SearchForm = ({ handleGetMovies, filmsTumbler, filmsInputSearch, handleGetMoviesTumbler }) => {
-  const [inputSearch, setInputSearch] = useState('');
+  const [inputSearchMovie, setInputSearchMovie] = useState('');
   const [tumbler, setTumbler] = useState(false);
 
   function handleInputChange(evt) {
-    setInputSearch(evt.target.value);
+    setInputSearchMovie(evt.target.value);
   }
 
   function handleTumblerChange(evt) {
@@ -17,18 +17,18 @@ const SearchForm = ({ handleGetMovies, filmsTumbler, filmsInputSearch, handleGet
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleGetMovies(inputSearch);
+    handleGetMovies(inputSearchMovie);
   }
 
   useEffect(() => {
     setTumbler(filmsTumbler);
-    setInputSearch(filmsInputSearch);
+    setInputSearchMovie(filmsInputSearch);
   }, [filmsTumbler, filmsInputSearch]);
 
   return (
     <form className="search">
       <div className="search__container">
-        <input className="search__input" placeholder="Фильм" type="text" value={inputSearch || ''} onChange={handleInputChange} required />
+        <input className="search__input" placeholder="Фильм" type="text" value={inputSearchMovie || ''} onChange={handleInputChange} required />
         <button type="submit" className="search__button" onClick={handleSubmit}>Найти</button>
       </div>
       <div className="search__toggle">

@@ -1,7 +1,4 @@
 import './Profile.css';
-import React from 'react';
-import {Link} from 'react-router-dom';
-
 import { useState, useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import mainApi from '../../utils/MainApi';
@@ -51,25 +48,27 @@ const Profile = ({ onSignOut, openPopup }) => {
   }
 
   return (
-    <main>
-      <section className="profile">
-        <form className="profile__form" onSubmit={handleSubmit}>
-          <h1 className="profile__greeting">Привет, {name}!</h1>
-          <div className="profile__inputs">
-            <span className="profile__text">Имя</span>
-            <div className="profile__area profile__area_type_name">
-              <input className="profile__settings" value={name} onChange={handleNameChange}/>
-            </div>
-            <div className="profile__area profile__area_type_email">
-              <input className="profile__settings"value={email} onChange={handleEmailChange}/>
-            </div>
-            <span className="profile__text">E-mail</span>
+    <section className="profile">
+      <form className="profile__form" onSubmit={handleSubmit}>
+        <h1 className="profile__greeting">Привет, {name}!</h1>
+        <div className="profile__inputs">
+          <p className="profile__text">Имя</p>
+          <div className="profile__area profile__area_type_name">
+            <input className="profile__settings" value={name} onChange={handleNameChange} />
           </div>
-          <Link to="/profile" className="profile__button" disabled={!isVisibleButton}>Редактировать</Link>
-          <Link to="/" className="profile__link" onClick={onSignOut}>Выйти из аккаунта</Link>
-        </form>
-      </section>
-    </main>
+          <div className="profile__area profile__area_type_email">
+            <input className="profile__settings" value={email} onChange={handleEmailChange} />
+          </div>
+          <p className="profile__text">E-mail</p>
+        </div>
+        <button className="profile__button" disabled={!isVisibleButton}>
+          Редактировать
+        </button>
+        <button className="profile__link" type="button" onClick={onSignOut}>
+          Выйти из аккаунта
+        </button>
+      </form>
+    </section>
   );
 };
 

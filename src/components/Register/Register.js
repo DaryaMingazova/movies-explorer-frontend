@@ -32,7 +32,7 @@ function Register({ onRegister }) {
 
     onRegister(inputValues);
   };
-  
+
   return (
     <main>
       <section className="form">
@@ -40,12 +40,12 @@ function Register({ onRegister }) {
           <Link to="/" className="form__link">
             <img className="form__logo" src={logo} alt="Логотип Movies Explorer"></img>
           </Link>
-          <h2 className="form__title">Добро пожаловать!</h2>
+          <h1 className="form__title">Добро пожаловать!</h1>
           <form className="form__inputs" onSubmit={handleSubmit}>
             <div className="form__items">
               <label className="form__item">
                 <span className="form__item-text">Имя</span>
-                <input className="form__field" name="name" placeholder="Введите имя" value={inputValues.name || ''} onChange={handleInputChange} required />
+                <input className="form__field" name="name" placeholder="Введите имя" value={inputValues.name || ''} onChange={handleInputChange} minLenght="2" maxLenght="30" required />
                 <span className="form__error">Что-то пошло не так...</span>
               </label>
 
@@ -89,6 +89,5 @@ function Register({ onRegister }) {
     </main>
   );
 }
- 
 
 export default Register;

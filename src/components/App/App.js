@@ -102,13 +102,13 @@ function App() {
       <div className="App">
         {pathname === '/' || pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile' ?
           <Header loggedIn={loggedIn} isLoading={isLoading}/> : ''}
-          
+
         <Switch>
           <Route exact path="/">
             <Main />
-        </Route>
-        
-        <ProtectedRoute
+          </Route>
+
+          <ProtectedRoute
             path="/movies"
             loggedIn={loggedIn}
             component={Movies}

@@ -87,7 +87,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  address: 'https://',
+  address: 'https://api.movies.nomoreparties.co',
   headers: {
     'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',

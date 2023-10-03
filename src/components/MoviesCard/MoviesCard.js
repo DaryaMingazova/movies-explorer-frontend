@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import './MoviesCard.css';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -7,7 +8,7 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
   const [favorite, setFavorite] = useState(false);
 
   function handleFavoriteToogle() {
-     const newFavorite = !favorite;
+    const newFavorite = !favorite;
     const savedFilm = filmsSaved.filter((obj) => {
       return obj.movieId == film.id;
     });
@@ -36,14 +37,13 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
     }
   }, [pathName, filmsSaved, film.id]);
 
-      
   return (
     <li className="card">
       <a className="card__image-content" href={pathName === '/saved-movies' ? film.trailer : film.trailerLink} target="_blank"  rel="noreferrer">
         <img className="card__image" src={pathName === '/saved-movies' ? `${film.image}` : `https://api.nomoreparties.co${film.image.url}`} alt={film.nameRU}></img>
       </a>
       <div className="card__element">
-        <p className="card__title">{film.nameRU}</p>
+        <h2 className="card__title">{film.nameRU}</h2>
         <div className="card__buttons">
 
           {pathName === '/saved-movies' ? (
@@ -54,7 +54,7 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
           
         </div>
       </div>
-      <p className="card__duration">{getMovieDuration(film.duration)}</p>
+      <span className="card__duration">{getMovieDuration(film.duration)}</span>
     </li>
   );
 };

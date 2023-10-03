@@ -84,14 +84,6 @@
   line-height: 13px;
 }
 
-.profile__settings:focus {
-  width: 175%;
-  outline: 1px solid #F9F9F9;
-  margin-left: -151px;
-  border-radius: 9px;
-  background-color: #2be080;
-}
-
 .profile__button {
   margin: 220px 0 16px;
   border: none;
@@ -114,6 +106,8 @@
 }
 
 .profile__link {
+  border: none;
+  background-color: transparent;
   color: #FF3055;
   font-size: 13px;
   font-weight: 500;

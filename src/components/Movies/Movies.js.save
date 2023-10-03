@@ -14,9 +14,9 @@ const Movies = ({ openPopup }) => {
   const [filmsTumbler, setFilmsTumbler] = useState(false);
   const [filmsInputSearch, setFilmsInputSearch] = useState('');
   const [MoviesCount, setMoviesCount] = useState([]);
-  const [filmsSeen, setFilmsSeen] = useState(null);
+  const [seenFilms, setSeenFilms] = useState(null);
   const [filmsWithTumbler, setFilmsWithTumbler] = useState([]);
-  const [filmsSeenWithTumbler, setFilmsSeenWithTumbler] = useState([]);
+  const [filmsShowedWithTumbler, setFilmsShowedWithTumbler] = useState([]);
 
   useEffect(() => {
     setMoviesCount(getMoviesCount());
@@ -51,8 +51,8 @@ const Movies = ({ openPopup }) => {
 
   function handleMore() {
     const spliceFilms = films;
-    const newFilmsSeen = filmsSeen.concat(spliceFilms.splice(0, MoviesCount[1]));
-    setFilmsSeen(newFilmsSeen);
+    const newSeenFilms = seenFilms.concat(spliceFilms.splice(0, MoviesCount[1]));
+    setFilmsSd(newFilmsShowed);
     setFilms(spliceFilms);
   }
 
@@ -75,9 +75,9 @@ const Movies = ({ openPopup }) => {
       localStorage.setItem('filmsInputSearch', inputSearch);
 
       const spliceData = filterData.splice(0, MoviesCount[0]);
-      setFilmsSeen(spliceData);
+      setFilmsShowed(spliceData);
       setFilms(filterData);
-      setFilmsSeenWithTumbler(spliceData);
+      setFilmsShowedWithTumbler(spliceData);
       setFilmsWithTumbler(filterData);
     } catch (err) {
       setErrorMessage(
@@ -98,18 +98,18 @@ const Movies = ({ openPopup }) => {
     let filterData = [];
 
     if (tumbler) {
-      setFilmsSeenWithTumbler(filmsSeen);
+      setFilmsShowedWithTumbler(filmsShowed);
       setFilmsWithTumbler(films);
-      filterDataShowed = filmsSeen.filter(({ duration }) => duration <= 40);
+      filterDataShowed = filmsShowed.filter(({ duration }) => duration <= 40);
       filterData = films.filter(({ duration }) => duration <= 40);
     } else {
-      filterDataShowed = filmsSeenWithTumbler;
+      filterDataShowed = filmsShowedWithTumbler;
       filterData = filmsWithTumbler;
     }
 
     localStorage.setItem('films', JSON.stringify(filterDataShowed.concat(filterData)));
     localStorage.setItem('filmsTumbler', tumbler);
-    setFilmsSeen(filterDataShowed);
+    setFilmsShowed(filterDataShowed);
     setFilms(filterData);
   }
 
@@ -160,7 +160,7 @@ const Movies = ({ openPopup }) => {
 
     if (localStorageFilms) {
       const filterData = JSON.parse(localStorageFilms);
-      setFilmsSeen(filterData.splice(0, getMoviesCount()[0]));
+      setFilmsShowed(filterData.splice(0, getMoviesCount()[0]));
       setFilms(filterData);
       setPreloader(false);
     }
@@ -182,8 +182,8 @@ const Movies = ({ openPopup }) => {
       <SearchForm handleGetMovies={handleGetMovies} filmsTumbler={filmsTumbler} filmsInputSearch={filmsInputSearch} handleGetMoviesTumbler={handleGetMoviesTumbler} />
       {preloader && <Preloader />}
       {errorMessage && <div className="movies__text-error">{errorMessage}</div>}
-      {!preloader && !errorMessage && films !== null && filmsSaved !== null && filmsSeen !== null && (
-        <MoviesCardList handleMore={handleMore} filmsRemains={films} films={filmsSeen} savedMoviesToggle={savedMoviesToggle} filmsSaved={filmsSaved} />
+      {!preloader && !errorMessage && films !== null && filmsSaved !== null && filmsShowed !== null && (
+        <MoviesCardList handleMore={handleMore} filmsRemains={films} films={filmsShowed} savedMoviesToggle={savedMoviesToggle} filmsSaved={filmsSaved} />
       )}
     </main>
   );

@@ -40,7 +40,7 @@ function Login({ onLogin }) {
           <Link to="/" className="form__link">
             <img className="form__logo" src={logo} alt="Логотип Movies Explorer"></img>
           </Link>
-          <h2 className="form__title">Рады видеть!</h2>
+          <h1 className="form__title">Рады видеть!</h1>
           <form className="form__inputs" onSubmit={handleSubmit}>
             <div className="form__items">
               <label className="form__item">
@@ -63,7 +63,8 @@ function Login({ onLogin }) {
                   className={`form__field ${errors.password ? 'form__field_color-error' : ''}`}
                   name="password"
                   type="password"
-                  minLength="6"
+                  minLength="2"
+                  maxLength="30"
                   placeholder="Введите пароль"
                   value={inputValues.password || ''}
                   onChange={handleInputChange}
@@ -79,8 +80,8 @@ function Login({ onLogin }) {
             <Link to="/signup" className="form__link">Регистрация</Link>
           </span>
         </div>
-      </section>
-    </main>
+       </section>
+     </main>
   );
 }
 
