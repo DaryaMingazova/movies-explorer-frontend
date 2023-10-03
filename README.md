@@ -36,4 +36,5 @@ https://www.figma.com/file/Vufy5NJYf7Oqh6dPOfNUrj/light-1?type=design&node-id=89
 - [IP] http://51.250.84.88
 - [Frontend]  https://movies.nomoreparties.co
 - [Backend]  https://api.movies.nomoreparties.co (API)
+- [Пул кеквест] https://github.com/DaryaMingazova/movies-explorer-frontend/pull/2
 
