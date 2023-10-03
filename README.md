@@ -10,6 +10,6 @@ https://www.figma.com/file/Vufy5NJYf7Oqh6dPOfNUrj/light-1?type=design&node-id=89
 - [Frontend]  https://movies.nomoreparties.co
 - [Backend]  https://api.movies.nomoreparties.co (API)
 
-##Пул реквест
+## Пул реквест
 https://github.com/DaryaMingazova/movies-explorer-frontend/pull/2
 
