@@ -1,22 +1,87 @@
-import Form from '../Form/Form';
+import '../Form/Form.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.svg';
+import isEmail from 'validator/es/lib/isEmail';
 
-function Login() {
+function Login({ onLogin }) {
+  const [inputValues, setInputValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
+
+  const handleInputChange = (evt) => {
+    const target = evt.target;
+    const name = target.name;
+    const value = target.value;
+
+    if (name === 'email') {
+      if (!isEmail(value)) {
+        target.setCustomValidity('Некорректый адрес почты');
+      } else {
+        target.setCustomValidity('');
+      }
+    }
+
+    setInputValues({ ...inputValues, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest('form').checkValidity());
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    onLogin(inputValues);
+  };
+
   return (
     <main>
-      <Form header="Рады видеть!" submit="Войти" question="Ещё не зарегистрированы?" link="Регистрация" path="/signup">
-        <label className="form__item">
-          <span className="form__item-text">E-mail</span>
-          <input type="email" className="form__field" defaultValue="email@yandex.ru" placeholder="Введите почту" required />
-          <span className="form__error">Что-то пошло не так...</span>
-        </label>
+      <section className="form">
+        <div className="form__container">
+          <Link to="/" className="form__link">
+            <img className="form__logo" src={logo} alt="Логотип Movies Explorer"></img>
+          </Link>
+          <h1 className="form__title">Рады видеть!</h1>
+          <form className="form__inputs" onSubmit={handleSubmit}>
+            <div className="form__items">
+              <label className="form__item">
+                <span className="form__item-text">E-mail</span>
+                <input
+                  className={`form__field ${errors.email ? 'form__field_color-error' : ''}`}
+                  name="email"
+                  type="email"
+                  placeholder="Введите почту"
+                  value={inputValues.email || ''}
+                  onChange={handleInputChange}
+                  required
+                />
+                <span className={`form__error ${errors.email ? 'form__error-display' : ''}`}>{errors.email}</span>
+              </label>
 
-        <label className="form__item">
-          <span className="form__item-text">Пароль</span>
-          <input type="password" className="form__field form__field_color-error" minLength="2" maxLength="30" placeholder="Введите пароль" required />
-          <span className="form__error form__error-display">Что-то пошло не так...</span>
-        </label>
-      </Form>
-    </main>
+              <label className="form__item">
+                <span className="form__item-text">Пароль</span>
+                <input
+                  className={`form__field ${errors.password ? 'form__field_color-error' : ''}`}
+                  name="password"
+                  type="password"
+                  minLength="2"
+                  maxLength="30"
+                  placeholder="Введите пароль"
+                  value={inputValues.password || ''}
+                  onChange={handleInputChange}
+                  required
+                />
+                <span className={`form__error ${errors.password ? 'form__error-display' : ''}`}>{errors.password}</span>
+              </label>
+            </div>
+            <button className={`form__button ${isValid ? "" : "form__button_disabled"}`} type="submit" disabled={!isValid ? true : ''}>Войти</button>
+          </form>
+          <span className="form__text">
+            Ещё не зарегистрированы?
+            <Link to="/signup" className="form__link">Регистрация</Link>
+          </span>
+        </div>
+       </section>
+     </main>
   );
 }
 

@@ -1,33 +1,33 @@
 import './MoviesCardList.css';
-import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import Preloader from '../Preloader/Preloader';
 
-const MoviesCardList = ({ cards, buttonMore }) => {
-  const [isLoading, setLoading] = useState(false);
-
-  const handlePreloader = () => {
-    setLoading(true);
-  };
+const MoviesCardList = ({ films, savedMoviesToggle, saveFilms, filmsRemains, handleMore }) => {
+  const { pathName } = useLocation();
 
   return (
-    <section className="cards">
-      <ul className="cards__list">
-        {cards.map((card) => (
-          <MoviesCard key={card.id} card={card} />
-        ))}
-      </ul>
-
-      {isLoading ? (
-        <Preloader />
+    <div className="cards">
+      {films.length > 0 ? (
+        <ul className="cards__list">
+          {films.map((film) => (
+            <MoviesCard
+              key={film.id || film.movieId}
+              film={film}
+              savedMoviesToggle={savedMoviesToggle}
+              saveFilms={saveFilms}
+            />
+          ))}
+        </ul>
       ) : (
-        buttonMore && (
-          <div className="cards__button-container">
-            <button className="cards__button" type="button" name="more" onClick={handlePreloader}>Ещё</button>
-          </div>
-        )
+        <div className="cards__text">Ничего не найдено</div>
       )}
-    </section>
+
+      {filmsRemains.length > 0 && pathName !== '/saved-movies' && (
+        <div className="cards__button-container">
+          <button className="cards__button" type="button" name="more" onClick={handleMore}>Ещё</button>
+        </div>
+      )}
+    </div>
   );
 };
 
